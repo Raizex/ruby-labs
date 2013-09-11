@@ -14,7 +14,14 @@ def palindrome?(string)
 	# your code here
 end
 
+def palintest(number, string)
+	if palindrome?(string)
+		print("PalinTest#{number}: Success\n")
+	else
+		print("PalinTest#{number}: Failed\n")
+	end
+end
 
-print("Test1: success") if palindrome?("Abracadabra") else print("Test1: Failed")
-print("Test2: success") if palindrome?("Madam, I'm Adam!") else print("Test2: Failed")
-print("Test3: success") if palindrome?("A man, a plan, a canal -- Panama") else print("Test2: Failed")
+palintest(1, "Abracadabra")
+palintest(2, "Madam, I'm Adam!")
+palintest(3, "A man, a plan, a canal -- Panama")
