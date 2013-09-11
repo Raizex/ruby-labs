@@ -11,7 +11,9 @@ hello = HelloWorldClass.new("Justin Huffman")
 hello.sayHi
 
 def palindrome?(string)
-	# your code here
+	string.downcase!
+	string = string[/[a-z]/]
+	return string == string.reverse
 end
 
 def palintest(number, string)
