@@ -34,10 +34,20 @@ palintest(3, "A man, a plan, a canal -- Panama")
 
 #Part3: Count Words
 def count_words(string)
-	# your code here
+	hash = {}
+
+	string.downcase.scan(/\b[\w]+/).each do |word|
+		if hash[word].nil?
+			hash[word] = 1
+		else
+			hash[word] += 1
+		end
+	end
+
+	return hash
 end
 
-count_words("A man, a plan, a canal -- Panama")
+puts count_words("A man, a plan, a canal -- Panama")
 	# => {'a' => 3, 'man' => 1, 'canal' => 1, 'panama' => 1, 'plan' => 1}
-count_words "Doo bee doo bee doo"
+puts count_words("Doo bee doo bee doo")
 	# => {'doo' => 3, 'bee' => 2}
