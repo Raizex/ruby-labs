@@ -54,7 +54,17 @@ puts count_words("Doo bee doo bee doo")
 
 
 # Part3: Rock Paper Scissors
+class WrongNumberOfPlayersError <  StandardError ; end
+class NoSuchStrategyError <  StandardError ; end
+
 def rps_game_winner(game)
+	begin
+		raise WrongNumberOfPlayersError unless game.length == 2
+	rescue
+		puts "Wrong number of players."
+		return WrongNumberOfPlayersError
+	end
+
 	# code goes here
 end
 
@@ -62,17 +72,40 @@ def rps_tournament_winner(tournament)
 	# your code here
 end
 
-def test_rps_game
-	game = [ ["Richard", "R"],  ["Michael", "S"] ]
-	winner = ["Richard", "R"]
+def test_rps_game_winner(game, winner)
 
 	if rps_game_winner(game) == winner
-		print("TestRPSGame: Success\n")
+		print("TestRPSGameWinner: Success\n")
 	else
-		print("TestRPSGame: Failed\n")
+		print("TestRPSGameWinner: Failed\n")
 	end
 end
-test_rps_game
+
+def test_rps_game_number_of_players(game)
+	if rps_game_winner(game) == WrongNumberOfPlayersError
+		print("TestRPSGamePlayers: Success\n")
+	else
+		print("TestRPSGamePlayers: Failed\n")
+	end
+end
+
+def test_rps_game_valid_strategy(game)
+	if rps_game_winner(game) == NoSuchStrategyError
+		print("TestRPSGameValidStrategy: Success\n")
+	else
+		print("TestRPSGameValidStrategy: Failed\n")
+	end
+end
+
+game = [ ["Richard", "R"],  ["Michael", "S"] ]
+winner = ["Richard", "R"]
+test_rps_game_winner(game, winner)
+game.push(["Justin", "T"])
+test_rps_game_valid_strategy(game)
+test_rps_game_number_of_players(game)
+
+
+
 
 def test_rps_tourny
 	tournament = [
