@@ -51,3 +51,30 @@ puts count_words("A man, a plan, a canal -- Panama")
 	# => {'a' => 3, 'man' => 1, 'canal' => 1, 'panama' => 1, 'plan' => 1}
 puts count_words("Doo bee doo bee doo")
 	# => {'doo' => 3, 'bee' => 2}
+
+
+# Part3: Rock Paper Scissors
+def rps_tournament_winner(tournament)
+	# your code here
+end
+
+def test_rps
+	tournament = [
+	    [
+	        [ ["Armando", "P"], ["Dave", "S"] ],
+	        [ ["Richard", "R"],  ["Michael", "S"] ],
+	    ],
+	    [
+	        [ ["Allen", "S"], ["Omer", "P"] ],
+	        [ ["David E.", "R"], ["Richard X.", "P"] ]
+	    ]
+	]
+
+	winner = ["Richard", "R"]
+
+	if rps_tournament_winner(tournament) == winner
+		print("TestRPS: Success")
+	else
+		print("TestRPS: Failed")
+	end
+end
