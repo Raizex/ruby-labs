@@ -54,11 +54,27 @@ puts count_words("Doo bee doo bee doo")
 
 
 # Part3: Rock Paper Scissors
+def rps_game_winner(game)
+	# code goes here
+end
+
 def rps_tournament_winner(tournament)
 	# your code here
 end
 
-def test_rps
+def test_rps_game
+	game = [ ["Richard", "R"],  ["Michael", "S"] ]
+	winner = ["Richard", "R"]
+
+	if rps_game_winner(game) == winner
+		print("TestRPSGame: Success\n")
+	else
+		print("TestRPSGame: Failed\n")
+	end
+end
+test_rps_game
+
+def test_rps_tourny
 	tournament = [
 	    [
 	        [ ["Armando", "P"], ["Dave", "S"] ],
@@ -73,8 +89,9 @@ def test_rps
 	winner = ["Richard", "R"]
 
 	if rps_tournament_winner(tournament) == winner
-		print("TestRPS: Success")
+		print("TestRPSTourny: Success\n")
 	else
-		print("TestRPS: Failed")
+		print("TestRPSTourny: Failed\n")
 	end
 end
+test_rps_tourny
