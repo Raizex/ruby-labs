@@ -91,7 +91,22 @@ def rps_game_winner(game)
 end
 
 def rps_tournament_winner(tournament)
-	# your code here
+	left_bracket = tournament[0]
+	right_bracket = tournament[1]
+
+	if left_bracket[0][0].instance_of? String
+		left_winner = rps_game_winner(left_bracket)
+	else
+		left_winner = rps_tournament_winner(left_bracket)
+	end
+
+	if right_bracket[0][0].instance_of? String
+		right_winner = rps_game_winner(right_bracket)
+	else
+		right_winner = rps_tournament_winner(right_bracket)
+	end
+
+	return rps_game_winner([left_winner, right_winner])
 end
 
 
