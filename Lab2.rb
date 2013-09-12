@@ -160,3 +160,24 @@ def test_rps_tourny
 	end
 end
 test_rps_tourny
+
+# Part4: Anagrams
+def combine_anagrams(words)
+	# code goes here
+end
+
+def test_combine_anagrams
+	input = ['cars', 'for', 'potatoes', 'racs', 'four', 'scar', 'creams', 'scream']
+	output = [ ["cars", "racs", "scar"],
+           ["four"],
+           ["for"],
+           ["potatoes"],
+           ["creams", "scream"] ]
+
+    if combine_anagrams(input) == output
+    	puts "TestCombineAnagrams: Success"
+    else
+    	puts "TestCombineAnagrams: Failed"
+    end
+end
+test_combine_anagrams
