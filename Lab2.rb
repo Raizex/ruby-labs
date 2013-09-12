@@ -163,7 +163,23 @@ test_rps_tourny
 
 # Part4: Anagrams
 def combine_anagrams(words)
-	# code goes here
+	ana_dictionary = {}
+
+	words.each do |word|
+		key = word.split(//).sort
+		if ana_dictionary[key].nil?
+			ana_dictionary[key] = [word]
+		else
+			ana_dictionary[key] << word
+		end
+	end
+
+	anagrams = []
+	ana_dictionary.each do |key, value|
+		anagrams << value
+	end
+
+	puts anagrams.to_s
 end
 
 def test_combine_anagrams
