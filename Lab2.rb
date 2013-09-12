@@ -58,19 +58,42 @@ class WrongNumberOfPlayersError <  StandardError ; end
 class NoSuchStrategyError <  StandardError ; end
 
 def rps_game_winner(game)
-	begin
-		raise WrongNumberOfPlayersError unless game.length == 2
-	rescue
-		puts "Wrong number of players."
-		return WrongNumberOfPlayersError
+	raise WrongNumberOfPlayersError unless game.length == 2
+	
+	valid_strings = ["R", "P", "S"]
+	game.each do |name, value|
+		raise NoSuchStrategyError unless valid_strings.include?(value)
 	end
 
-	# code goes here
+	player1 = game[0]
+	player2 = game[1]
+
+	case player1[1]
+	when "R"
+		if player2[1] == "S"
+			return player1
+		else
+			return player2
+		end
+	when "P"
+		if player2[1] == "R"
+			return player1
+		else
+			return player2
+		end
+	when "S"
+		if player2[1] == "P"
+			return player1
+		else
+			return player2
+		end
+	end
 end
 
 def rps_tournament_winner(tournament)
 	# your code here
 end
+
 
 def test_rps_game_winner(game, winner)
 
@@ -100,12 +123,6 @@ end
 game = [ ["Richard", "R"],  ["Michael", "S"] ]
 winner = ["Richard", "R"]
 test_rps_game_winner(game, winner)
-game.push(["Justin", "T"])
-test_rps_game_valid_strategy(game)
-test_rps_game_number_of_players(game)
-
-
-
 
 def test_rps_tourny
 	tournament = [
